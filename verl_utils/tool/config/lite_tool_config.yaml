@@ -1,0 +1,56 @@
+tools:
+  - class_name: "verl_utils.tool.lite_tool.EditTool"
+    config: 
+      root_dir: "datasets"
+      temp_dir: "workspace"
+      type: native
+    tool_schema:
+      type: "function"
+      function:
+        name: "edit_tool"
+        description: "A file edit tool that replaces an old string of text with a new string.\nNotes:\n1.  The `old_str` parameter must match a segment of the file's content **exactly**. Pay close attention to whitespace, indentation, and newlines.\nThe edit will fail if `old_str` is not found, or if it is found multiple times in the file. Ensure `old_str` is unique enough to target the specific code block.\n3. `edit_tool` **permanently modifies the actual repository** (changes persist to the final outcome)."
+        parameters:
+          type: "object"
+          properties:
+            path:
+              type: "string"
+              description: "Relative file path e.g. `dir/file.py`."
+            old_str:
+              type: "string"
+              description: "The exact string/content to be replaced in the file. This must be a unique match within the entire file."
+            new_str:
+              type: "string"
+              description: "The new string that will replace `old_str`. Use an empty string to perform a deletion."
+          required: ["path", "old_str", "new_str"]
+  - class_name: "verl_utils.tool.lite_tool.SearchTool"
+    config: 
+      root_dir: "datasets"
+      type: native
+    tool_schema:
+      type: "function"
+      function:
+        name: "search_tool"
+        description: "A code graph tool to show the source code of a function/class/class_method by its name.\nNotes:\n1. This tool is designed for Python code; it cannot find entities in other languages.\n2. If the `entity` name is not unique across the repository, the source code for all matching items will be displayed.\n3. This tool operates on a static, **initial snapshot of the repository**. Changes made with `edit_tool` will **not** be visible in the search results."
+        parameters:
+          type: "object"
+          properties:
+            construct:
+              type: "string"
+              description: "Type of program construct to search for."
+              enum: ["function", "class", "class_method"]
+            entity:
+              type: "string"
+              description: "The simple name of the entity to find (e.g., `my_function`, `MyClass`, `my_class_method`)."
+          required: ["construct", "entity"]
+  - class_name: "verl_utils.tool.workspace_manager.PatchSubmission"
+    config: 
+      type: native
+    tool_schema:
+      type: "function"
+      function:
+        name: "patch_submission"
+        description: "Automatically generate a diff patch for existing code changes and submit it to the user."
+        parameters:
+          type: "object"
+          properties: {}
+          required: []
