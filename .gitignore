@@ -1,3 +1,4 @@
+datasets
 
 **/*.pt
 **/checkpoints

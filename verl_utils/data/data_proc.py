@@ -28,8 +28,8 @@ def make_map_fn(data_source):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--data_source", default="agentic")
-    parser.add_argument("--file_path", default='data/info_train.parquet')
+    parser.add_argument("--data_source", default="group")
+    parser.add_argument("--file_path", default='datasets/info_train_r4p.parquet')
 
     args = parser.parse_args()
 

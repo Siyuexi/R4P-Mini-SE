@@ -1,16 +1,18 @@
+# Scripts for training and testing Mini-SE.
+
 export VLLM_USE_V1=1
 export GLOO_SOCKET_IFNAME='eth0'
 export NCCL_SOCKET_IFNAME='eth0'
 
-export ROOT_DIR='/mnt/...'
+export ROOT_DIR='.'
 export BASE_MODEL=$ROOT_DIR'/models/Qwen3-32B'
 export WAND_PROJECT='r4p-mini-se'
 export EXPERIMENT_NAME='mini-se'
 
 git config --global safe.directory "*"
 
-train_files="['$ROOT_DIR/datasets/data_train_mini-se.parquet']"
-test_files="['$ROOT_DIR/datasets/data_test_mini-se.parquet']"
+train_files="['$ROOT_DIR/datasets/data_train_minise.parquet']"
+test_files="['$ROOT_DIR/datasets/data_test_minise.parquet']"
 
 mkdir $ROOT_DIR/workspace
 tool_config_path=$ROOT_DIR/verl_utils/tool/config/lite_tool_config.yaml

@@ -1,18 +1,20 @@
+# Scripts for evaluating Mini-SE (patch selection).
+
 # p is part. range from 1 to 4. (4x4=16) for first comp etition
 # p can also be 'x2' or 'x4' for second competition
 # p=1
 p=x4
 
-export ROOT_DIR='/mnt/...'
+export ROOT_DIR='.'
 export EXPERIMENT_NAME='tts'
 export FINETUNE_MODEL_PATH=$ROOT_DIR'/models/r4p'
 
 # round-1
-data_path=$ROOT_DIR/datasets/data_test_minise_patch_x1.parquet
+data_path=$ROOT_DIR/datasets/data_tts_minise_patch_x1.parquet
 # round-2
-data_path=$ROOT_DIR/datasets/data_test_minise_patch_x2x4.parquet
+data_path=$ROOT_DIR/datasets/data_tts_minise_patch_x2x4.parquet
 
-output_path=$ROOT_DIR/datasets/output_test_minise_competition_$p'_'$EXPERIMENT_NAME'_'$step.parquet
+output_path=$ROOT_DIR/datasets/output_tts_minise_$p'_'$EXPERIMENT_NAME'_'$step.parquet
 
 # only if you need to merge model checkpoints.
 # python -m verl_utils.eval.model_merger \

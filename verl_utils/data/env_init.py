@@ -128,12 +128,10 @@ def construct_ckg(db: DataBase, ws_path: str) -> None:
 
 def init(root, data, total_parts, part_idx):
 
-    if 'r2e-gym' in data:
-        filepath = f'{root}/r2e.parquet' # train set for minise
-    elif 'swe-gym' in data:
-        filepath = f'{root}/swe-gym.parquet' # train set for r4p
-    elif 'swe-bench' in data:
-        filepath = f'{root}/swe-bench-verified.parquet' # test set
+    if 'train' in data:
+        filepath = f'{root}/info_train_minise.parquet' # train set
+    else:
+        filepath = f'{root}/info_test_minise.parquet' # test set
 
     df = pd.read_parquet(filepath)
     total_lines = len(df)
@@ -177,10 +175,10 @@ def init(root, data, total_parts, part_idx):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument("--root", type=str, default="data", 
+    parser.add_argument("--root", type=str, default="datasets", 
                        help="Root directory path")
-    parser.add_argument("--data", type=str, default="r2e-gym", 
-                       help="Dataset")
+    parser.add_argument("--data", type=str, default="train", 
+                       help="Dataset split")
     parser.add_argument("--total_parts", type=int, default=1, 
                        help="Total number of parts to split the work into")
     parser.add_argument("--part_idx", type=int, default=0, 

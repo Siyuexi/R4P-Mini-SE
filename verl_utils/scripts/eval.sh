@@ -1,6 +1,8 @@
+# Scripts for evaluating R4P individually.
+
 type=batch
 
-export ROOT_DIR='/mnt/...'
+export ROOT_DIR='.'
 export EXPERIMENT_NAME='r4p'
 export FINETUNE_MODEL_PATH=$ROOT_DIR'/model/r4p'
 

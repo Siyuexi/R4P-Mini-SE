@@ -1,3 +1,4 @@
+# Scripts for serving R4P on your GPU machines.
 
 ### Modify "MODEL_PATH" in model_server.py and "SERVER_URL" in model_client.py
 

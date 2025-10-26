@@ -1,4 +1,6 @@
-export ROOT_DIR='/mnt/...'
+# Scripts for training and testing R4P.
+
+export ROOT_DIR='.'
 export BASE_MODEL=$ROOT_DIR'/models/Qwen2.5-Coder-32B-Instruct'
 export WAND_PROJECT='r4p-mini-se'
 export EXPERIMENT_NAME='r4p'

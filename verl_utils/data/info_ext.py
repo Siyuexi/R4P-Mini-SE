@@ -205,9 +205,9 @@ def get_info(issue_path, patch_path, save_path, type_classify, split, tag, trajs
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Extract the meta information from the dataset and rollouts.')
-    parser.add_argument('--issue_path', type=str, default='data/datasets/swe-gym.parquet', help='Path to the issue info dataset.')
-    parser.add_argument('--patch_path', type=str, default='data/rollouts/20240620_sweagent_claude3.5sonnet/logs', help='Path to the rollouts.')
-    parser.add_argument('--save_path', type=str, default='data/', help='Path to save the full info.')
+    parser.add_argument('--issue_path', type=str, default='datasets/swe-gym.parquet', help='Path to the issue info dataset.')
+    parser.add_argument('--patch_path', type=str, default='datasets/20240620_sweagent_claude3.5sonnet/logs', help='Path to the rollouts.')
+    parser.add_argument('--save_path', type=str, default='datasets/', help='Path to save the full info.')
     parser.add_argument('--type_classify', type=str, default='', help='Classify of the issue type, e.g., single means only select issues invonving single file edit. Options: single, multiple, or None.')
     parser.add_argument('--split', type=str, default='train', help='Split of the dataset.')
     parser.add_argument('--tag', type=str, default='03', help='Special tag for info file name.')
