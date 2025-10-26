@@ -1,11 +1,6 @@
 
 ### Modify "MODEL_PATH" in model_server.py and "SERVER_URL" in model_client.py
 
-# sudo apt-get install net-tools
-# export BYTED_RAY_SERVE_RUN_HOST="::"
-
-pip install -e .
-
 ray stop --force
 ray start --head \
   --node-ip-address=127.0.0.1 \
