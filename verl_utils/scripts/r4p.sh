@@ -3,8 +3,8 @@ export BASE_MODEL=$ROOT_DIR'/models/Qwen2.5-Coder-32B-Instruct'
 export WAND_PROJECT='r4p-mini-se'
 export EXPERIMENT_NAME='r4p'
 
-train_files="['$ROOT_DIR/datasets/train_r4p.parquet']"
-test_files="['$ROOT_DIR/datasets/test_r4p.parquet']"
+train_files="['$ROOT_DIR/datasets/data_train_r4p.parquet']"
+test_files="['$ROOT_DIR/datasets/data_test_r4p.parquet']"
 
 # aggressive: no kl, 1e-6, 24k-4k, 8n
 CUDA_LAUNCH_BLOCKING=1 python3 -m verl.trainer.main_ppo \
