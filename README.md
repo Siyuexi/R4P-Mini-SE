@@ -29,4 +29,11 @@ Before training Mini-SE, please use `verl_utils/data/env_init.py` to checkout th
 
 ## Citation
 
-TODO.
+```bibtex
+@article{xu2025scalable,
+  title={Scalable Supervising Software Agents with Patch Reasoner},
+  author={Xu, Junjielong and Tan, Boyin and Liu, Xiaoyuan and Peng, Chao and Gao, Pengfei and He, Pinjia},
+  journal={arXiv preprint arXiv:2510.22775},
+  year={2025}
+}
+```

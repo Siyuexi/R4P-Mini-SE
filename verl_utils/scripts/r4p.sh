@@ -4,6 +4,7 @@ export ROOT_DIR='.'
 export BASE_MODEL=$ROOT_DIR'/models/Qwen2.5-Coder-32B-Instruct'
 export WAND_PROJECT='r4p-mini-se'
 export EXPERIMENT_NAME='r4p'
+export NNODES=8
 
 train_files="['$ROOT_DIR/datasets/data_train_r4p.parquet']"
 test_files="['$ROOT_DIR/datasets/data_test_r4p.parquet']"
@@ -57,7 +58,7 @@ CUDA_LAUNCH_BLOCKING=1 python3 -m verl.trainer.main_ppo \
     trainer.logger=['console','wandb'] \
     trainer.val_before_train=true \
     trainer.n_gpus_per_node=8 \
-    trainer.nnodes=$ARNOLD_WORKER_NUM \
+    trainer.nnodes=$NNODES \
     trainer.save_freq=20 \
     trainer.test_freq=20 \
     trainer.project_name=$WAND_PROJECT \
